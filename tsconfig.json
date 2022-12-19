@@ -1,0 +1,9 @@
+{
+  "extends": "./packages/typescript/tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": "packages",
+    "paths": {
+      "@canossi/*": ["*/src"]
+    }
+  }
+}

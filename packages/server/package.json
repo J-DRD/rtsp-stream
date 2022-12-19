@@ -1,0 +1,25 @@
+{
+  "name": "@canossi/rtsp-server",
+  "version": "1.0.1",
+  "packageManager": "yarn@3.3.0",
+  "private": true,
+  "scripts": {
+    "clean": "rimraf dist",
+    "build": "yarn clean && node -r dotenv/config ./scripts/build.mjs",
+    "start": "node -r dotenv/config ./dist/server.mjs"
+  },
+  "dependencies": {
+    "@canossi/rtsp-client": "^1.0.1",
+    "@canossi/rtsp-stream": "^1.0.1",
+    "@vladmandic/pilogger": "^0.4.6"
+  },
+  "devDependencies": {
+    "eslint": "^8.29.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-node": "^11.1.0",
+    "find-up": "^6.3.0",
+    "hint": "^7.1.3",
+    "rimraf": "^3.0.2"
+  }
+}

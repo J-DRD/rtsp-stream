@@ -1,0 +1,53 @@
+{
+  "server": {
+    "httpPort": 8000,
+    "httpsPort": 8001,
+    "encoderPort": ":8002",
+    "iceServers": ["stun:stun.l.google.com:19302"],
+    "webrtcMinPort": 49152,
+    "webrtcMaxPort": 65535,
+    "retryConnectSec": 10,
+    "startStreamServer": true
+  },
+  "streams": {
+    "street": {
+      "description": "North Street",
+      "debug": false,
+      "url": "rtsp://192.168.1.120/cam/realmonitor?channel=1&subtype=1"
+    },
+    "frontEntry": {
+      "description": "Front Entry",
+      "debug": false,
+      "url": "rtsp://192.168.1.120/cam/realmonitor?channel=4&subtype=1"
+    },
+    "frontYard": {
+      "description": "Front Yard",
+      "debug": false,
+      "url": "rtsp://192.168.1.120/cam/realmonitor?channel=5&subtype=1"
+    },
+    "driveway": {
+      "description": "Lower Driveway",
+      "debug": false,
+      "url": "rtsp://192.168.1.120/cam/realmonitor?channel=8&subtype=1"
+    },
+    "upperDriveway": {
+      "description": "Upper Driveway",
+      "debug": false,
+      "url": "rtsp://192.168.1.120/cam/realmonitor?channel=3&subtype=1"
+    },
+    "studio": {
+      "description": "Detached Studio",
+      "debug": false,
+      "url": "rtsp://192.168.1.120/cam/realmonitor?channel=7&subtype=1"
+    },
+    "backDoor": {
+      "description": "Backdoor",
+      "debug": false,
+      "url": "rtsp://192.168.1.120/cam/realmonitor?channel=6&subtype=1"
+    }
+  },
+  "client": {
+    "debug": true,
+    "defaultStream": "street"
+  }
+}

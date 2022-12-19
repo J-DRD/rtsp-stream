@@ -1,0 +1,68 @@
+{
+  "settings": {
+    "import/resolver": {
+      "alias": {
+        "map": [["~", "./"]],
+        "extensions": [".ts", ".js", ".tsx"]
+      }
+    },
+    "react": {
+      "createClass": "createReactClass",
+      "pragma": "React",
+      "version": "detect"
+    },
+    "propWrapperFunctions": [
+      "forbidExtraProps",
+      { "property": "freeze", "object": "Object" },
+      { "property": "myFavoriteWrapper" }
+    ],
+    "linkComponents": ["Hyperlink", { "name": "Link", "linkAttribute": "to" }]
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react/recommended",
+    "prettier"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["prettier", "react", "@typescript-eslint", "no-smart-quotes"],
+  "env": {
+    "es6": true,
+    "browser": true,
+    "node": true,
+    "jquery": true
+  },
+
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 2020,
+    "sourceType": "module"
+  },
+  "rules": {
+    "@typescript-eslint/ban-types": "off",
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/explicit-member-accessibility": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "@typescript-eslint/no-explicit-any": "off", //TODO! 👈: Maybe not a good idea to use any.
+    "@typescript-eslint/no-namespace": "off",
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      { "varsIgnorePattern": "^_", "argsIgnorePattern": "^_" }
+    ],
+    "@typescript-eslint/no-use-before-define": "off", // 👈 https://palantir.github.io/tslint/rules/no-use-before-declare/
+    "import/extensions": "off",
+    "no-unused-vars": "off",
+    "no-console": "error",
+    "no-debugger": "error",
+    "no-smart-quotes/no-smart-quotes": "error",
+    "no-trailing-spaces": "warn",
+    "no-var": "error",
+    "prettier/prettier": "error",
+    "react/no-unescaped-entities": "off",
+    "react/prop-types": [2, { "ignore": ["children"] }],
+    "semi": [1, "always"]
+  }
+}

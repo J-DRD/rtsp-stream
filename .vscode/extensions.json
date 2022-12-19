@@ -1,0 +1,29 @@
+{
+  "recommendations": [
+    "aaron-bond.better-comments",
+    "christian-kohler.path-intellisense",
+    "coderfin.logical-properties",
+    "dbaeumer.vscode-eslint",
+    "eg2.vscode-npm-script",
+    "esbenp.prettier-vscode",
+    "formulahendry.auto-rename-tag",
+    "gamunu.vscode-yarn",
+    "msjsdiag.debugger-for-chrome",
+    "pranaygp.vscode-css-peek",
+    "psioniq.psi-header",
+    "sainoba.px-to-rem",
+    "streetsidesoftware.code-spell-checker",
+    "styled-components.vscode-styled-components",
+    "vscode-icons-team.vscode-icons",
+    "eamodio.gitlens",
+    "johnpapa.vscode-peacock",
+    "usernamehw.errorlens",
+    "gruntfuggly.todo-tree",
+    "wallabyjs.wallaby-vscode",
+    "wallabyjs.quokka-vscode",
+    "vivaxy.vscode-conventional-commits",
+    "mhutchie.git-graph",
+    "hediet.vscode-drawio",
+    "gitpod.gitpod-desktop"
+  ]
+}
