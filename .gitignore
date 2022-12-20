@@ -145,5 +145,5 @@ dist
 .env
 
 dist/*
-packages/server/rtsp-stream*
-packages/server/https*
+https.key
+https.crt
