@@ -11,35 +11,6 @@ import { dirname } from "path";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-export function slash(path) {
-  const isExtendedLengthPath = /^\\\\\?\\/.test(path);
-  const hasNonAscii = /[^\u0000-\u0080]+/.test(path); // eslint-disable-line no-control-regex
-
-  if (isExtendedLengthPath || hasNonAscii) {
-    return path;
-  }
-
-  return path.replace(/\\/g, "/");
-}
-
-/**
- * Description
- * @param {any} folderGlob
- * @returns {any}
- */
-export async function findFiles(pattern) {
-  return new Promise((resolve, reject) =>
-    glob(slash(pattern), (err, files) => {
-      if (err) {
-        reject(err);
-        return;
-      }
-
-      resolve(files);
-    })
-  );
-}
-
 /**
  * Description
  * @param {any} cwd
