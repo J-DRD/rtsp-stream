@@ -12,17 +12,15 @@ const Container = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
 
-  padding: 0 0.5rem;
-
   .video-container {
-    width: 50%;
-    height: 50vh;
+    inline-size: 50%;
+    block-size: 50vh;
     outline: 0.2rem solid black;
 
     video {
       object-fit: fill;
-      width: 100%;
-      height: 100%;
+      inline-size: 100%;
+      block-size: 100%;
       position: relative;
     }
 
@@ -32,7 +30,7 @@ const Container = styled.div`
       justify-content: center;
       position: absolute;
       z-index: 10;
-      width: 50%;
+      inline-size: 50%;
       user-select: none;
 
       p {

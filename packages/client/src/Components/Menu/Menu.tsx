@@ -8,9 +8,9 @@ export interface MenuProps extends React.HTMLAttributes<HTMLDivElement> {}
 const StickyIcon = styled.div`
   z-index: 2147483647;
   position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 42px;
+  inset-block-end: 0;
+  inset-inline-start: 0;
+  inline-size: 2.625rem;
   display: flex;
   flex-direction: column;
   pointer-events: none;
@@ -23,7 +23,7 @@ StickyIcon.defaultProps = {
 const Slider = styled.div`
   transition: all 0.3s;
   border-radius: 0 3.125rem 3.125rem 0;
-  text-align: left;
+  text-align: start;
   margin: 0;
   text-decoration: none;
   text-transform: uppercase;
@@ -43,8 +43,8 @@ const Slider = styled.div`
   i {
     transition: all 0.3s;
     background-color: #fff;
-    height: 2rem;
-    width: 2rem;
+    block-size: 2rem;
+    inline-size: 2rem;
     color: #ccc;
     text-align: center;
     line-height: 2rem;
@@ -92,14 +92,6 @@ export const Menu: React.FunctionComponent<MenuProps> = (_props) => {
 
   // current x and y position
   const [pos, setPos] = useState({ x: 0, y: -100 });
-
-  // // window size state
-  // const [windowSize, setWindowSize] = useState({ width: 0, height: 0 });
-
-  // // window resize function handler
-  // const onWindowResize = () => {
-  //   setWindowSize({ width: window.innerWidth, height: window.innerHeight });
-  // };
 
   const onWindowClick = (event: Event) => {
     console.log("window click", event);

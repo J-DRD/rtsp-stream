@@ -10,7 +10,7 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 8rem;
+  inline-size: 8rem;
   padding: 0.5rem;
 
   .rc-slider-track {
@@ -22,7 +22,7 @@ const Container = styled.div`
 
   &&
     .rc-slider-handle-dragging.rc-slider-handle-dragging.rc-slider-handle-dragging {
-    box-shadow: 0 0 5px var(--xyz-yellow04);
+    box-shadow: 0 0 0.3125rem var(--xyz-yellow04);
     border-color: var(--xyz-yellow04);
   }
 `;
@@ -43,7 +43,6 @@ export const VolumeSlider: React.FunctionComponent<VolumeSliderProps> = (
 
   return (
     <Container>
-      {/* Slider component. */}
       <Slider
         className="volume-slider"
         min={min}

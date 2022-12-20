@@ -16,17 +16,17 @@ const Container = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  width: 300px;
+  inline-size: 18.75rem;
   padding: 0;
   position: fixed;
   z-index: 10000;
-  top: 0;
-  left: calc(50% - 150px);
+  inset-block-start: 0;
+  inset-inline-start: calc(50% - 9.375rem);
   background-color: var(--xyz-black);
   border-radius: 0 0 0.5rem 0.5rem;
   box-shadow: 0 0 0.1rem 0.1rem #000;
   opacity: 33%;
-  border-top: none;
+  border-block-start: none;
 
   :hover {
     opacity: 0.66;
