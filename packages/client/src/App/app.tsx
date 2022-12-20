@@ -3,6 +3,7 @@
 import React from "react";
 import styled from "styled-components";
 import { MediaControls, Player } from "../Components";
+import createPersistedState from "use-persisted-state";
 
 const Container = styled.div`
   display: flex;
@@ -15,15 +16,18 @@ Container.defaultProps = {
   className: "app-container",
 };
 
+const useMuteState = createPersistedState("muted");
+const useVolumeState = createPersistedState("volume");
+
 export const App: React.FunctionComponent = () => {
   // Playing state.
-  const [isPlaying, setIsPlaying] = React.useState(true);
+  const [playing, setPlaying] = React.useState(true);
 
   // Mute state.
-  const [isMuted, setIsMuted] = React.useState(false);
+  const [muted, setMuted] = useMuteState(false);
 
   // Volume state.
-  const [volume, setVolume] = React.useState(100);
+  const [volume, setVolume] = useVolumeState(100);
 
   // Reset state.
   const [reset, setReset] = React.useState(false);
@@ -34,7 +38,7 @@ export const App: React.FunctionComponent = () => {
 
   // Mute all videos.
   const onMute = (mute: boolean) => {
-    setIsMuted(mute);
+    setMuted(mute);
     // get all video elements.
     getAllVideoElements().forEach((video: HTMLVideoElement) => {
       // mute video.
@@ -48,7 +52,7 @@ export const App: React.FunctionComponent = () => {
     }
 
     setVolume(value);
-    setIsMuted(value == 0);
+    setMuted(value == 0);
     getAllVideoElements().forEach((video: HTMLVideoElement) => {
       // set volume.
       video.volume = value / 100;
@@ -56,7 +60,7 @@ export const App: React.FunctionComponent = () => {
   };
 
   const onPlay = (play: boolean) => {
-    setIsPlaying(play);
+    setPlaying(play);
 
     getAllVideoElements().forEach((video: HTMLVideoElement) => {
       if (play) {
@@ -77,11 +81,11 @@ export const App: React.FunctionComponent = () => {
   return (
     <Container>
       <MediaControls
-        isPlaying={isPlaying}
-        onPlay={() => onPlay(!isPlaying)}
-        isMuted={isMuted}
-        onMute={() => onMute(!isMuted)}
-        volume={isMuted ? 0 : volume}
+        isPlaying={playing}
+        onPlay={() => onPlay(!playing)}
+        isMuted={muted}
+        onMute={() => onMute(!muted)}
+        volume={muted ? 0 : volume}
         onVolume={(value) => onVolume(value)}
         onReset={onReset}
       ></MediaControls>

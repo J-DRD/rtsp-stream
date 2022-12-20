@@ -18,7 +18,8 @@
     "react-dom": "^18.2.0",
     "react-draggable": "^4.4.5",
     "react-is": "^18.2.0",
-    "styled-components": "^5.3.6"
+    "styled-components": "^5.3.6",
+    "use-persisted-state": "^0.3.3"
   },
   "devDependencies": {
     "@parcel/transformer-js": "^2.8.0",
