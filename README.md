@@ -8,6 +8,7 @@ This project is a tool for streaming video from an RTSP source (such as a camera
 
 - [Node.js (version 18.12.1)](https://nodejs.org/en/download/)
 - [Golang](https://golang.org/doc/install)
+- [Yarn](https://yarnpkg.com/getting-started/install)
 
 ## Installation
 
