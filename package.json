@@ -8,7 +8,8 @@
     "@parcel/transformer-pug": "2.8.0",
     "@parcel/transformer-sass": "2.8.0",
     "buffer": "^5.5.0",
-    "lerna": "^6.1.0"
+    "lerna": "^6.1.0",
+    "opener": "^1.5.2"
   },
   "workspaces": [
     "packages/*"
