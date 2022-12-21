@@ -12,22 +12,7 @@ import { dirname } from "path";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-/**
- * Description
- * @param {any} folderGlob
- * @returns {any}
- */
-export async function findFiles(pattern) {
-  return new Promise((resolve, reject) =>
-    glob(slash(pattern), (err, files) => {
-      if (err) {
-        reject(err);
-      } else {
-        resolve(files);
-      }
-    })
-  );
-}
+
 
 /**
  * Description

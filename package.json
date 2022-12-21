@@ -22,6 +22,7 @@
     "start": "lerna run start --stream",
     "build": "lerna run build --stream",
     "build:docker": "docker build --tag rtsp-proxy .",
-    "start:docker": " docker run --env-file .env -p 8000:8000 -p 8001:8001 -p:8002:8002  -p 32900-33100:32900-33100/udp --rm --name rtsp-proxy -it rtsp-proxy"
+    "start:docker": " docker run --env-file .env -p 8000:8000 -p 8001:8001 -p:8002:8002  -p 32900-33100:32900-33100/udp --rm --name rtsp-proxy -it rtsp-proxy",
+    "init:https": "openssl req -x509 -newkey rsa:4096 -nodes -keyout https.key -out https.crt -days 365"
   }
 }
