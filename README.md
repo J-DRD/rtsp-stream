@@ -15,13 +15,13 @@ This project is a tool for streaming video from an RTSP source (such as a camera
 1. Clone this repository:
 
    ```powershell
-   git clone https://github.com/your-username/rtsp-streaming.git
+   git clone https://github.com/your-username/rtsp-stream.git
    ```
 
 2. Navigate to the project directory:
 
    ```powershell
-   cd rtsp-streaming
+   cd rtsp-stream
    ```
 
 3. Install the required Node packages:
