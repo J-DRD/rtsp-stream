@@ -7,6 +7,7 @@
   "devDependencies": {
     "@parcel/transformer-pug": "2.8.2",
     "@parcel/transformer-sass": "2.8.2",
+    "buffer": "^5.5.0",
     "lerna": "^6.1.0",
     "opener": "^1.5.2"
   },

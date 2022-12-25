@@ -35,6 +35,6 @@
   "scripts": {
     "clean": "npx rimraf dist",
     "build": "yarn clean && parcel build src/index.pug --public-url ./",
-    "debug": "parcel src/index.pug --open chrome"
+    "dev": "parcel src/index.pug --open chrome"
   }
 }

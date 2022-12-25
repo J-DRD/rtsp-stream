@@ -264,12 +264,14 @@ BottomOfPage.defaultProps = {
 export interface PlayerProps extends React.HTMLAttributes<HTMLDivElement> {
   init: boolean;
   onInit: () => void;
+  volume: number;
 }
 
 Player.defaultProps = {
   init: true,
   onInit: () => {},
   className: "video-player",
+  volume: 100,
 };
 
 export function Player(props: PlayerProps) {
@@ -303,14 +305,17 @@ export function Player(props: PlayerProps) {
     const asyncWork = async () => {
       const config = await getConfig();
       setConfig(config);
+      onInit();
     };
 
     asyncWork().catch((e) => {
       console.error(e.message || e);
     });
-
-    onInit();
   }, [init]);
+
+  const onPlay = (event) => {
+    event.target.volume = props.volume / 100.0;
+  };
 
   if (config) {
     const { streams = undefined } = config || {};
@@ -327,6 +332,7 @@ export function Player(props: PlayerProps) {
               config={config}
               autoPlay={true}
               controls={true}
+              onPlay={onPlay}
             />
           ))}
         <BottomOfPage />

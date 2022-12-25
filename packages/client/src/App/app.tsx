@@ -78,6 +78,10 @@ export const App: React.FunctionComponent = () => {
     setReset(true);
   };
 
+  const onInit = () => {
+    setReset(false);
+  };
+
   return (
     <Container>
       <MediaControls
@@ -89,7 +93,7 @@ export const App: React.FunctionComponent = () => {
         onVolume={(value) => onVolume(value)}
         onReset={onReset}
       ></MediaControls>
-      <Player init={reset} onInit={() => setReset(false)} />
+      <Player init={reset} onInit={onInit} volume={volume} />
     </Container>
   );
 };
