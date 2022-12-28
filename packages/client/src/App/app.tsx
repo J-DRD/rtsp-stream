@@ -1,9 +1,11 @@
 // -------------------------------------------------------------------------------------------------
 // -------------------------------------------------------------------------------------------------
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import { MediaControls, Player } from "../Components";
 import createPersistedState from "use-persisted-state";
+import dotenvParseVariables from "dotenv-parse-variables";
+import { useTimeout } from "../hooks";
 
 const Container = styled.div`
   display: flex;
@@ -18,6 +20,10 @@ Container.defaultProps = {
 
 const useMuteState = createPersistedState("muted");
 const useVolumeState = createPersistedState("volume");
+
+const env = dotenvParseVariables(process.env);
+
+const { RELOAD_PAGE_INTERVAL: reloadPageInterval = 30 * 60 * 1000 } = env;
 
 export const App: React.FunctionComponent = () => {
   // Playing state.
@@ -35,6 +41,11 @@ export const App: React.FunctionComponent = () => {
   const getAllVideoElements = () => {
     return document.querySelectorAll("video");
   };
+
+  const startReloadPage = useTimeout(() => {
+    console.log(`♻️ Reload page timeout reached. ${reloadPageInterval}`);
+    window.location.reload();
+  }, reloadPageInterval);
 
   // Mute all videos.
   const onMute = (mute: boolean) => {
@@ -81,6 +92,10 @@ export const App: React.FunctionComponent = () => {
   const onInit = () => {
     setReset(false);
   };
+
+  useEffect(() => {
+    startReloadPage;
+  }, []);
 
   return (
     <Container>

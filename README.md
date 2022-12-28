@@ -38,7 +38,7 @@ This project is a tool for streaming video from an RTSP source (such as a camera
 
 ## Configuration
 
-1. Copy the `.env-template` file to `.env` and add your RSTP server username and password.
+1. Copy the `.env.template` file to `.env` and add your RSTP server username and password.
 
    ```powershell
    cp .env-template .env
