@@ -1,0 +1,267 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/typescript-node
+{
+  "name": "🟢 Node.js & TypeScript 🟢",
+  // Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+  // "image": "mcr.microsoft.com/devcontainers/typescript-node:1-18-bookworm",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+
+  //"workspaceMount": "src=${localWorkspaceFolder},dst=/workspace,type=bind,consistency=cached",
+  "workspaceMount": "src=${localWorkspaceFolder},dst=/workspace,type=bind,consistency=cached,bind-propagation=private",
+  "workspaceFolder": "/workspace",
+
+  "mounts": [
+    "source=${localWorkspaceFolderBasename}_rtsp-node_modules,target=${containerWorkspaceFolder}/node_modules,type=volume"
+  ],
+
+  // Use 'forwardPorts' to make a list of ports inside the container available locally.
+  "forwardPorts": [3000, 9996, 9997, 9998, 9999],
+
+  // Features to add to the dev container. More info: https://containers.dev/features.
+  "features": {
+    // GitHub CLI: https://github.com/devcontainers/features/tree/main/src/github-cli
+    "github-cli": {
+      "version": "latest",
+      "installDirectlyFromGitHubRelease": true
+    },
+    // Node: https://github.com/devcontainers/features/tree/main/src/node
+    "node": {
+      "version": "lts",
+      "nodeGypDependencies": "true",
+      "nvmInstallPath": "/usr/local/share/nvm",
+      "nvmVersion": "latest"
+    },
+    // Docker-in-Docker: https://github.com/devcontainers/features/tree/main/src/docker-in-docker#docker-docker-in-docker-docker-in-docker
+    "docker-in-docker": {
+      "version": "latest",
+      "moby": true,
+      "dockerDashComposeVersion": "v2",
+      "azureDnsAutoDetection": true,
+      "dockerDefaultAddressPool": "",
+      "installDockerBuildx": true
+    }
+  },
+
+  // Configure tool-specific properties.
+  "customizations": {
+    // Configure properties specific to VS Code.
+    "vscode": {
+      // Set *default* container specific settings.json values on container create.
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "zsh",
+        "editor.formatOnPaste": true,
+
+        "editor.guides.bracketPairs": "active",
+
+        "scm.defaultViewMode": "tree",
+        "debug.internalConsoleOptions": "neverOpen",
+        "liveServer.settings.NoBrowser": true,
+        "liveServer.settings.port": 5000,
+        "terminal.integrated.profiles.linux": {
+          "bash": {
+            "path": "bash",
+            "icon": "terminal-bash"
+          },
+          "zsh": {
+            "path": "zsh"
+          },
+          "fish": {
+            "path": "fish"
+          },
+          "tmux": {
+            "path": "tmux",
+            "icon": "terminal-tmux"
+          },
+          "pwsh": {
+            "path": "pwsh",
+            "icon": "terminal-powershell"
+          }
+        },
+        "git.ignoreLimitWarning": true,
+        "eslint.validate": [
+          "javascript",
+          "javascriptreact",
+          "typescript",
+          "typescriptreact"
+        ],
+        "editor.tabSize": 2,
+        "editor.autoIndent": "full",
+        "editor.formatOnSave": true,
+        "[javascript]": {
+          "editor.formatOnSave": true,
+          "editor.codeActionsOnSave": {
+            "source.fixAll.eslint": true
+          }
+        },
+        "[typescript]": {
+          "editor.formatOnSave": true
+        },
+        "[typescriptreact]": {
+          "editor.formatOnSave": true,
+          "editor.codeActionsOnSave": {
+            "source.fixAll.eslint": true
+          }
+        },
+        "eslint.workingDirectories": [
+          "./packages/frontend",
+          "./packages/backend"
+        ],
+        "typescript.tsdk": "./node_modules/typescript/lib",
+        "git.inputValidationLength": 100,
+        "git.inputValidation": "off",
+        "files.autoSave": "onFocusChange",
+        "cSpell.words": [
+          "cuuid",
+          "deepch",
+          "fontawesome",
+          "fortawesome",
+          "godotenv",
+          "keyout",
+          "mpegts",
+          "muxer",
+          "nosniff",
+          "Onvif",
+          "realmonitor",
+          "RSTP",
+          "rtsp",
+          "rtspv",
+          "suuid",
+          "tsavo",
+          "webrtc",
+          "zzxyz"
+        ],
+        "markdownlint.config": {
+          "default": true,
+          "no-inline-html": {
+            "allowed_elements": ["details", "p", "br"]
+          }
+        },
+        "psi-header.lang-config": [
+          {
+            "language": "javascript",
+            "begin": "",
+            "prefix": "// ",
+            "suffix": "",
+            "lineLength": 100,
+            "end": "",
+            "forceToTop": true,
+            "blankLinesAfter": 0,
+            "beforeHeader": [],
+            "afterHeader": [],
+            "rootDirFileName": "package.json",
+            "modDateFormat": "dd/MM/yyyy hh:nn:ss",
+            "replace": [],
+            "ignoreLines": [""]
+          },
+          {
+            "language": "typescript",
+            "mapTo": "javascript"
+          },
+          {
+            "language": "TypeScriptReact",
+            "mapTo": "javascript"
+          }
+        ],
+        "psi-header.templates": [
+          {
+            "language": "javascript",
+            "template": [
+              "-------------------------------------------------------------------------------------------------",
+              "-------------------------------------------------------------------------------------------------"
+            ]
+          },
+          {
+            "language": "typescript",
+            "mapTo": "javascript"
+          },
+          {
+            "language": "TypeScriptReact",
+            "mapTo": "javascript"
+          }
+        ],
+        "psi-header.changes-tracking": {
+          "isActive": true,
+          "exclude": ["markdown", "json", "jsonc", "shellscript"],
+          "includeGlob": ["**/src/**/*.{ts,tsx,js,jsx}"],
+          "excludeGlob": ["./**/*/ignoreme.*", "**/settings.json"],
+          "autoHeader": "autoSave",
+          "enforceHeader": true,
+          "replace": [],
+          "updateLicenseVariables": true
+        },
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "peacock.color": "#f9e64f",
+        "workbench.colorCustomizations": {
+          "activityBar.activeBackground": "#fbed80",
+          "activityBar.background": "#fbed80",
+          "activityBar.foreground": "#15202b",
+          "activityBar.inactiveForeground": "#15202b99",
+          "activityBarBadge.background": "#06b9a5",
+          "activityBarBadge.foreground": "#15202b",
+          "commandCenter.border": "#15202b99",
+          "sash.hoverBorder": "#fbed80",
+          "statusBar.background": "#f9e64f",
+          "statusBar.foreground": "#15202b",
+          "statusBarItem.hoverBackground": "#f7df1e",
+          "statusBarItem.remoteBackground": "#f9e64f",
+          "statusBarItem.remoteForeground": "#15202b",
+          "titleBar.activeBackground": "#f9e64f",
+          "titleBar.activeForeground": "#15202b",
+          "titleBar.inactiveBackground": "#f9e64f99",
+          "titleBar.inactiveForeground": "#15202b99"
+        }
+      },
+      // Add the IDs of extensions you want installed when the container is created.
+      "extensions": [
+        "aaron-bond.better-comments",
+        "bierner.github-markdown-preview",
+        "bradlc.vscode-tailwindcss",
+        "christian-kohler.npm-intellisense",
+        "christian-kohler.path-intellisense",
+        "coderfin.logical-properties",
+        "csstools.postcss",
+        "dbaeumer.vscode-eslint",
+        "eamodio.gitlens",
+        "editorconfig.editorconfig",
+        "eg2.vscode-npm-script",
+        "eg2.vscode-npm-script",
+        "esbenp.prettier-vscode",
+        "formulahendry.auto-rename-tag",
+        "gamunu.vscode-yarn",
+        "github.vscode-pull-request-github",
+        "gruntfuggly.todo-tree",
+        "hediet.vscode-drawio",
+        "humao.rest-client",
+        "johnpapa.vscode-peacock",
+        "mhutchie.git-graph",
+        "ms-azuretools.vscode-docker",
+        "ms-vscode.vscode-typescript-next",
+        "ms-vscode.wordcount",
+        "pranaygp.vscode-css-peek",
+        "psioniq.psi-header",
+        "redhat.fabric8-analytics",
+        "redhat.vscode-yaml",
+        "ritwickdey.live-sass",
+        "ritwickdey.liveserver",
+        "sainoba.px-to-rem",
+        "streetsidesoftware.code-spell-checker",
+        "streetsidesoftware.code-spell-checker",
+        "usernamehw.errorlens",
+        "visualstudioexptteam.vscodeintellicode",
+        "visualstudiotxptteam.vscodeintellicode-completions",
+        "vscode-icons-team.vscode-icons",
+        "wallabyjs.quokka-vscode",
+        "wallabyjs.wallaby-vscode"
+      ]
+    }
+  },
+
+  // Use 'postCreateCommand' to run commands after the container is created.
+  "postCreateCommand": "zsh .devcontainer/node/post-create.zsh",
+  // "overrideCommand": false,
+
+  "containerUser": "root",
+  "remoteUser": "root"
+}
