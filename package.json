@@ -5,10 +5,10 @@
   "license": "MIT",
   "private": true,
   "devDependencies": {
-    "@parcel/transformer-pug": "2.8.2",
-    "@parcel/transformer-sass": "2.8.2",
-    "buffer": "^5.5.0",
-    "lerna": "^6.1.0",
+    "@parcel/transformer-pug": "2.9.3",
+    "@parcel/transformer-sass": "2.9.3",
+    "buffer": "^6.0.3",
+    "lerna": "^7.3.0",
     "opener": "^1.5.2"
   },
   "workspaces": [

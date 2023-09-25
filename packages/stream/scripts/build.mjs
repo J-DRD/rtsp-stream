@@ -7,7 +7,7 @@ import { spawn } from "child_process";
 import { fileURLToPath } from "url";
 import chalk from "chalk";
 import path from "path";
-import rimraf from "rimraf";
+import { rimraf } from "rimraf";
 import { makeFolder, readJsonFileSync, indentString } from "./utils.mjs";
 import dotenvParseVariables from "dotenv-parse-variables";
 import ora from "ora";
